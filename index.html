@@ -213,9 +213,7 @@ const EMPLOYEE_ACCOUNTS = [
   const error=document.getElementById('loginError');
   const logout=document.getElementById('logoutButton');
   const sessionKey='odaCalculatorEmployeeSession';
-  const rateSettingsShownKey='odaCalculatorRateSettingsShown';
   function showRateSettings(){
-    if(sessionStorage.getItem(rateSettingsShownKey)==='1') return;
     const modal=document.getElementById('rateSettingsModal');
     const form=document.getElementById('rateSettingsForm');
     const fxInput=document.getElementById('rateSettingsFx');
@@ -238,7 +236,6 @@ const EMPLOYEE_ACCOUNTS = [
     if(!Number.isFinite(fuel)||fuel<0){document.getElementById('rateSettingsFuel').focus();return;}
     document.getElementById('fx').value=fx;
     document.getElementById('fuel').value=fuel;
-    sessionStorage.setItem(rateSettingsShownKey,'1');
     hideRateSettings();
     calc();
   });
